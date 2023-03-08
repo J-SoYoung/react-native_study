@@ -1,11 +1,30 @@
 import React from "react";
-import { StyleSheet, Text, View, StatusBar } from "react-native";
+import { StyleSheet, Text, View, StatusBar, Button } from "react-native";
 
-function Detail({ route }) {
+function Detail({ route, navigation }) {
   return (
     <View style={styles.block}>
       <Text style={styles.text}>id : {route.params.id}</Text>
-      <StatusBar style="auto" />
+      <View style={{ flexDirection: "row" }}>
+        <Button
+          title="다음"
+          onPress={() => {
+            navigation.push("Detail", { id: route.params.id + 1 });
+          }}
+        />
+        <Button
+          title="뒤로가기"
+          onPress={() => {
+            navigation.pop();
+          }}
+        />
+        <Button
+          title="처음으로"
+          onPress={() => {
+            navigation.popToTop();
+          }}
+        />
+      </View>
     </View>
   );
 }

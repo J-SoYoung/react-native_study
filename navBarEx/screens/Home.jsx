@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, Button, StatusBar } from "react-native";
 
 function Home({ navigation }) {
+  console.log(navigation);
   return (
     <View>
       <Button
